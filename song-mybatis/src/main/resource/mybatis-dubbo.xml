@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	
+	<dubbo:application name="octopus-mybatis"/>
+	
+	<dubbo:registry protocol="zookeeper" address="${zookeeper.hosts}" file="config-dubbo.cache" />
+    <!-- <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" file="config-dubbo.cache" / -->
+
+    <dubbo:protocol name="dubbo" host="${octopus.ip.public}" port="9012" serialization="kryo" optimizer="cn.wanda.octopus.common.dubbo.SerializationOptimizerImpl" />
+    
+</beans>
